@@ -1,13 +1,13 @@
 ---
 layout:     post
-title:      快速搭建个人博客
-subtitle:   手把手教你在半小时内搭建自己的个人博客(如果不踩坑的话🙈🙊🙉)
-date:       2017-02-06
-author:     BY
+title:      C#
+subtitle:   解析C#中JSON.NET的使用
+date:       2018-09-20
+author:     X
 header-img: img/post-bg-re-vs-ng2.jpg
 catalog: true
 tags:
-    - Blog
+    - Xionghz
 ---
 #【C#】解析C#中JSON.NET的使用
 ##1. JSON.NET的简介
