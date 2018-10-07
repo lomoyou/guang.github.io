@@ -22,8 +22,8 @@ RSS: false
 zhihu_username:     
 github_username:    lyh1997gh
 facebook_username:  
-jianshu_username:   e71990ada2fd
-#twitter_username:   qiubaiying
+jianshu_username:   fea279f7363c
+#twitter_username:   
 
 
 
@@ -99,10 +99,10 @@ service-worker: true
 friends: [
     {
         title: "WY",
-        href: "http://zhengwuyang.com"
+        href: "http://Xionghz.top"
     },{
-        title: "简书·BY",
-        href: "http://www.jianshu.com/u/e71990ada2fd"
+        title: "简书·Xhz",
+        href: "https://www.jianshu.com/u/fea279f7363c"
     },{
         title: "Apple",
         href: "https://apple.com"
