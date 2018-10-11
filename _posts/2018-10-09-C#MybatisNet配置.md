@@ -66,7 +66,7 @@ using IBatisNet.DataMapper;using System;using System.Collections.Generic;usin
 ## 6、测试
 
 ```
-//查询BaseDao<Sdeliver> @base = new BaseDao<Sdeliver>(){	isqlMapper = sqlMapper};List<Sap_MM018.DTO_WMS_ERP_MM018SHEET> list_sheet = new List<Sap_MM018.DTO_WMS_ERP_MM018SHEET>();IList<Sdeliver> sdelivers= @base.GetAllList("SelectDeliver");foreach (var item in sdelivers){	Sap_MM018.DTO_WMS_ERP_MM018SHEET dTO_WMS_ERP_MM018SHEET = new 
+BaseDao<Sdeliver> @base = new BaseDao<Sdeliver>(){	isqlMapper = sqlMapper};List<Sap_MM018.DTO_WMS_ERP_MM018SHEET> list_sheet = new List<Sap_MM018.DTO_WMS_ERP_MM018SHEET>();IList<Sdeliver> sdelivers= @base.GetAllList("SelectDeliver");foreach (var item in sdelivers){	Sap_MM018.DTO_WMS_ERP_MM018SHEET dTO_WMS_ERP_MM018SHEET = new 
 	Sap_MM018.DTO_WMS_ERP_MM018SHEET();	dTO_WMS_ERP_MM018SHEET.BUDAT = string.Format("{0:yyyyMMdd}", item.Budate);	dTO_WMS_ERP_MM018SHEET.CHARG = item.CHARG;	dTO_WMS_ERP_MM018SHEET.EBELN = item.EBELN;	dTO_WMS_ERP_MM018SHEET.EBELP = item.EBELP.ToString();	dTO_WMS_ERP_MM018SHEET.LGORT = item.LGORT;	dTO_WMS_ERP_MM018SHEET.MATNR = item.MATNR;	dTO_WMS_ERP_MM018SHEET.MEINS = item.MEINS;	dTO_WMS_ERP_MM018SHEET.MENGE = item.MENGE.ToString();	dTO_WMS_ERP_MM018SHEET.WERKS = item.WERKS;	dTO_WMS_ERP_MM018SHEET.ZWMNO = item.ZWMNO;	list_sheet.Add(dTO_WMS_ERP_MM018SHEET);
 }
 return list_sheet;
