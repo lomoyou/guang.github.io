@@ -17,12 +17,12 @@ _iBatis.Net是移植自java的一个持久性框架，在开发中简单易用�
 
 ## 1、下载dll
 _到[官网](http://code.google.com/p/mybatisnet/) 下载相关dll和文档_
---温馨提示需要翻墙
+_温馨提示需要翻墙_
 
-Doc-DataAccess-1.9.2.zip 
-Doc-DataMapper-1.6.2.zip 
-IBatis.DataAccess.1.9.2.bin.zip 
-IBatis.DataMapper.1.6.2.bin.zip
+* Doc-DataAccess-1.9.2.zip 
+* Doc-DataMapper-1.6.2.zip 
+* IBatis.DataAccess.1.9.2.bin.zip 
+* IBatis.DataMapper.1.6.2.bin.zip
 
 _一共4个.zip,在项目里添加引用_
 
@@ -32,8 +32,7 @@ _一共4个.zip,在项目里添加引用_
 * 把从官方下载的压缩包解开，就能找到providers.config文件，里面定义了MyBatis.Net支持的各种数据库驱动，本例以sqlserver为例，把其它不用的db provider全删掉，只保留下sqlServer2008，同时把enabled属性设置成true，参考下面这样：
 
 ```
-	<?xml version="1.0"?>	<providers xmlns="http://ibatis.apache.org/providers"		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">    	<clear/>   		<!--sqlserver2008数据库驱动配置文件-->  		<provider    		name="sqlServer2008"    		enabled="true"    		default="true"    		description="Microsoft SQL Server, provider V4.0.0.0 in framework .NET 		V4.5"    		assemblyName="System.Data, Version=4.0.0.0, Culture=Neutral, 			PublicKeyToken=b77a5c561934e089"    		connectionClass="System.Data.SqlClient.SqlConnection"    		commandClass="System.Data.SqlClient.SqlCommand"   			parameterClass="System.Data.SqlClient.SqlParameter"    		parameterDbTypeClass="System.Data.SqlDbType"    		parameterDbTypeProperty="SqlDbType"    		dataAdapterClass="System.Data.SqlClient.SqlDataAdapter"    		commandBuilderClass=" System.Data.SqlClient.SqlCommandBuilder"    		usePositionalParameters = "false"    		useParameterPrefixInSql = "true"    		useParameterPrefixInParameter = "true"    		parameterPrefix="@"    		allowMARS="true"    	/>	</providers>
-
+<?xml version="1.0"?><providers xmlns="http://ibatis.apache.org/providers"xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">	<clear/>	<!--sqlserver2008数据库驱动配置文件-->	<provider	name="sqlServer2008"	enabled="true"	default="true"	description="Microsoft SQL Server, provider V4.0.0.0 in framework .NETV4.5"	assemblyName="System.Data, Version=4.0.0.0, 	Culture=Neutral,PublicKeyToken=b77a5c561934e089"	connectionClass="System.Data.SqlClient.SqlConnection"	commandClass="System.Data.SqlClient.SqlCommand"	parameterClass="System.Data.SqlClient.SqlParameter"	parameterDbTypeClass="System.Data.SqlDbType"	parameterDbTypeProperty="SqlDbType"	dataAdapterClass="System.Data.SqlClient.SqlDataAdapter"	commandBuilderClass=" System.Data.SqlClient.SqlCommandBuilder"	usePositionalParameters = "false"	useParameterPrefixInSql = "true"	useParameterPrefixInParameter = "true"	parameterPrefix="@"	allowMARS="true"	/></providers>
 ```
 -----------------------------
 
