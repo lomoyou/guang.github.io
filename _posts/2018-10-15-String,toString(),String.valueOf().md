@@ -1,16 +1,16 @@
 ---
 layout:     post
 title:      String,toString(),String.valueOf()
-subtitle:   String(),toString(),String.valueOf()的区别
+subtitle:   String,toString(),String.valueOf()的区别
 date:       2018-10-15
-author:     XiongXz
+author:     Xionghz
 header-img: 
 catalog: true
 tags:
     - java
 ---
 
-# String(),toString(),String.valueOf()的区别
+# String,toString(),String.valueOf()的区别
 ## 1、String
 
 _String进行转换的时候，如果类型不匹配会抛出异常。因此在转化的时候如果不确定该类型是否为String类型，需要进行类型判断。_
