@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      C#-MybatisNet配置
-subtitle:   MybatisNet配置文件详解
+title:      C#-IbatisNet配置
+subtitle:   IbatisNet配置文件详解
 date:       2018-10-09
 author:     XiongXz
 header-img: 
@@ -10,14 +10,16 @@ tags:
     - C#
 ---
 
-# MybatisNet配置
+# IbatisNet配置
 
 ### 简介
 _iBatis.Net是移植自java的一个持久性框架，在开发中简单易用，且可以灵活修改Sql。_
 
 ## 1、下载dll
-_到[官网](http://code.google.com/p/mybatisnet/) 下载相关dll和文档_
-_温馨提示需要翻墙_
+_到[官网](http://code.google.com/p/mybatisnet/) 下载相关dll和文档._
+_温馨提示:需要翻墙_
+
+[百度云下载](https://pan.baidu.com/s/1q7APlGE5ZhJgqREk23WfYg)
 
 * Doc-DataAccess-1.9.2.zip 
 * Doc-DataMapper-1.6.2.zip 
