@@ -3,7 +3,7 @@ layout:     post
 title:      C#-IbatisNet配置
 subtitle:   IbatisNet配置文件详解
 date:       2018-10-09
-author:     XiongXz
+author:     Xionghz
 header-img: 
 catalog: true
 tags:

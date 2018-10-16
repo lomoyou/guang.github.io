@@ -3,7 +3,7 @@ layout:     post
 title:      C#-MybatisNet
 subtitle:   MybatisNet数据库配置文件,Providers.config
 date:       2018-10-06
-author:     XiongXz
+author:     Xionghz
 header-img: 
 catalog: true
 tags:

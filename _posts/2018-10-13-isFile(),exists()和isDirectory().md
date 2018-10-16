@@ -3,7 +3,7 @@ layout:     post
 title:      isFile(),exists(),isDirectory()
 subtitle:   java-File,isFile() exists() isDirectory()的区别
 date:       2018-10-13
-author:     XiongXz
+author:     Xionghz
 header-img: 
 catalog: true
 tags:
