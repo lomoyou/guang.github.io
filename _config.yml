@@ -1,13 +1,13 @@
 # Site settings
-title: BY XiongHz
-SEOTitle: 熊孩子的博客
+title: yimitumi
+SEOTitle: 依米荼蘼的博客
 header-img: img/post-bg-desk.jpg
 email: 18663398391@163.com
 description: "Somebody to love."
-keyword: "BY, BY XiongHz, 熊孩子的博客, love, iOS, Apple, iPhone"
-url: "http://xionghz.top"          # your host, for absolute URL
+keyword: "BY, yimitumi, 依米荼蘼的博客, love, dog"
+url: "http://yimitumi.com"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
-github_repo: "https://github.com/Lyh1997GH/LYH1997GH.github.io.git" # you code repository
+github_repo: "https://github.com/863568206/guang.github.io.git" # you code repository
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
@@ -20,7 +20,7 @@ sidebar-avatar: /img/avatar_m.jpg      # use absolute URL, seeing it's used in b
 RSS: false
 # weibo_username:     
 zhihu_username:     
-github_username:    lyh1997gh
+github_username:    863568206
 facebook_username:  
 jianshu_username:   fea279f7363c
 #twitter_username:   
