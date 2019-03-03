@@ -6,7 +6,7 @@ email: 863568206@qq.com
 description: "使我进步的不是谦虚，而是别人羡慕我时我的的那份骄傲。"
 keyword: "BY, yimitumi, 依米荼蘼的博客, love, dog"
 url: "http://yimitumi.com"          # your host, for absolute URL
-baseurl: "使我进步的不是谦虚，而是别人羡慕我时我的的那份骄傲。"      # for example, '/blog' if your blog hosted on 'host/blog'
+baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/863568206/guang.github.io.git" # you code repository
 
 # Sidebar settings
