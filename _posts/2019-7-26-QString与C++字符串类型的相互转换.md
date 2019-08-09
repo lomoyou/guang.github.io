@@ -54,5 +54,17 @@ string 转 QString
 wstring 转 QString
 
 	QString qstr3 = QString::fromStdWString(std_wstr);
+	
+BYTE* 转 QString
+
+	void BYTEtoQString(BYTE* byStr, QString &strBy)
+	{
+	    for (int i = 0; i < 16; i++)
+	    {
+		char pBuff[2];
+		sprintf(pBuff, "%02x", byStr[i]);
+		strBy = strBy + pBuff;
+	    }
+	}
 
 ## 向日葵--沉默的爱
