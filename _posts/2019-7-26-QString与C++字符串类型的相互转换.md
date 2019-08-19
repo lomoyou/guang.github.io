@@ -97,7 +97,7 @@ QString类型转为TCHAR *类型
 	    return buf;
 	}
 
-最后在使用完后应将内存释放：
+以上两个分别分配了内存，最后在使用完后应将内存释放：
 
 	QString str("你好");
 	TCHAR *data = CharToWchar(str);
