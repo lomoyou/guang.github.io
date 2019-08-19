@@ -66,5 +66,44 @@ BYTE* 转 QString
 		strBy = strBy + pBuff;
 	    }
 	}
+	
+TCHAR *类型转为QString类型：
+
+	QString WcharToChar(const TCHAR* wp, size_t codePage = CP_ACP)
+	{
+	QString str;
+	int len = WideCharToMultiByte(codePage, 0, wp, wcslen(wp), NULL, 0, NULL, NULL);
+	char *p = new char[len + 1];
+	memset(p, 0, len + 1);
+	WideCharToMultiByte(codePage, 0, wp, wcslen(wp), p, len, NULL, NULL);
+	p[len] = '\0';
+	str = QString(p);
+	delete p;
+	p = NULL;
+	return str;
+	}
+	
+QString类型转为TCHAR *类型
+
+	TCHAR *CharToWchar(const QString &str)
+	{
+	QByteArray ba = str.toUtf8();
+	char *data = ba.data(); //以上两步不能直接简化为“char *data = str.toUtf8().data();”
+	int charLen = strlen(data);
+	int len = MultiByteToWideChar(CP_ACP, 0, data, charLen, NULL, 0);
+	TCHAR *buf = new TCHAR[len + 1];
+	MultiByteToWideChar(CP_ACP, 0, data, charLen, buf, len);
+	buf[len] = '\0';
+	return buf;
+	}
+
+最后在使用完后应将内存释放：
+
+	QString str("你好");
+	TCHAR *data = CharToWchar(str);
+	......
+	delete data;
+	data = NULL;
+
 
 ## 向日葵--沉默的爱
