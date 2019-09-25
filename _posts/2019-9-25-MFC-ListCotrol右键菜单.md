@@ -19,7 +19,7 @@ tags:
 
 弹出菜单消息相应函数：
 
-   xxx.h:
+   xxx.h
 
 	afx_msg bool OnNMRClickListCotrol(NMHDR *pNMHDR, LRESULT *pResult);
 
