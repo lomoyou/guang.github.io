@@ -70,6 +70,29 @@ tags:
 		rerurn judge;
 	}
 
+## 随便位置弹出
+
+头文件和消息和上面一样。
+
+   cpp
+   	//弹出菜单设置
+  	void xxx::OnNMRClickListCotrol(NMHDR *pNMHDR, LRESULT *pResult)
+  	{
+		// TODO: 在此添加控件通知处理程序代码
+		LPNMITEMACTIVATE pNMItemActivate = reinterpret_cast<LPNMITEMACTIVATE>(pNMHDR);
+
+		CMenu menu, *popup;
+		//获取句柄
+		menu.LoadMenu(IDR_MENU_xxx_菜单ID)
+		popup = menu.GetSubMenu(0);
+		//位置信息
+		CPoint point;
+		ClientToScreen(&point);
+		GetCursorPos(&point);
+		popup->TrackPopupMenu(TPM_LEFTALIGN | TPM_RIGHTBUTTON, point.x, point.y, this);
+		*pResult = 0;
+	}
+
 ## 点击菜单项实现功能
 
 点击弹出的菜单可实现删除、添加或打开别的窗口等功能(手动添加)。
