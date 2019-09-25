@@ -75,16 +75,17 @@ tags:
 头文件和消息和上面一样。
 
    cpp
-   	//弹出菜单设置
-  	void xxx::OnNMRClickListCotrol(NMHDR *pNMHDR, LRESULT *pResult)
-  	{
+   
+	//弹出菜单设置
+	void xxx::OnNMRClickListCotrol(NMHDR *pNMHDR, LRESULT *pResult)
+	{
 		// TODO: 在此添加控件通知处理程序代码
 		LPNMITEMACTIVATE pNMItemActivate = reinterpret_cast<LPNMITEMACTIVATE>(pNMHDR);
 
 		CMenu menu, *popup;
 		//获取句柄
 		menu.LoadMenu(IDR_MENU_xxx_菜单ID)
-		popup = menu.GetSubMenu(0);
+			popup = menu.GetSubMenu(0);
 		//位置信息
 		CPoint point;
 		ClientToScreen(&point);
