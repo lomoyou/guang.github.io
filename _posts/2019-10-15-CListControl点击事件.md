@@ -29,16 +29,16 @@ tags:
 	{
 		DWORD dwPos = GetMessagePos();
 		CPoint point(LOWORD(dwPos), HIWORD(dwPos));
-		
+
 		m_list.ScreenToClient(&point);
-	
+
 		LVHITTESTINFO lvinfo;
 		lvinfo.pt = point;
 		lvinfo.flags = LVHT_ABOVE;
-	
+
 		UINT nFlag;
 		int nItem = m_list.HitTest(point, &nFlag); //获取点击的行号
-		
+
 		//判断是否点击的Checkbox
 		if (nFlag == LVHT_ONITEMSTATEICON)
 		{
