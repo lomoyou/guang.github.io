@@ -12,7 +12,7 @@ github_repo: "https://github.com/lomoyou/lomoyou.github.io.git" # you code repos
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "你所厌恶的现在，是未来你回不去的曾经。"
-sidebar-avatar: /img/renzu.jpg       # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/背景.jpeg       # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
