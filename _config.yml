@@ -1,17 +1,17 @@
 # Site settings
-title: YiMiTuMi
-SEOTitle: 依米荼蘼的博客
+title: 北天
+SEOTitle: 北天的博客
 header-img: img/QQ图片20190304165155.jpg
-email: 863568206@qq.com
-description: "感谢你们曾经来过！"
-keyword: "BY, yimitumi, 依米荼蘼的博客, love, dog"
-url: "http://yimitumi.com"          # your host, for absolute URL
+email: 247583797@qq.com
+description: "越努力，越幸运！"
+keyword: "BY, lomoyou, 北天的博客, love, heartstone"
+url: "http://lomoyou.cn"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
-github_repo: "https://github.com/863568206/guang.github.io.git" # you code repository
+github_repo: "https://github.com/lomoyou/lomoyou.github.io.git" # you code repository
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "他们好像不认识我了，他们从未真正认识过你!"
+sidebar-about-description: "你所厌恶的现在，是未来你回不去的曾经。"
 sidebar-avatar: /img/renzu.jpg       # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
@@ -20,7 +20,7 @@ sidebar-avatar: /img/renzu.jpg       # use absolute URL, seeing it's used in bot
 RSS: false
 # weibo_username:     
 zhihu_username:     
-github_username:    863568206
+github_username:    247583797
 facebook_username:  
 jianshu_username:   fea279f7363c
 #twitter_username:   
