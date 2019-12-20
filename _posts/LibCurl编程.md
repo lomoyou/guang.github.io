@@ -1,0 +1,145 @@
+# *LibCurl编程*
+LibCurl是免费的客户端URL传输库，支持FTP,FTPS, HTTP, HTTPS, SCP, SFTP, TFTP, TELNET, DICT, FILE ，LDAP等协议。Libcurl具备线程安全、IpV6兼容、易于使用的特点。本文档主要介绍LibCurl在Linux c中的使用。
+
+## LibCurl编程流程
+在基于LibCurl的程序里，主要采用callback(回调函数)的形式完成传输任务，用户在启动传输钱前设置好各类参数和回调函数，当满足条件时，libcurl将调用用户的回调函数实现特定功能。其大致流程如下：
+* 1. 调用curl_global_init()函数初始化libcurl
+* 2. 调用curl_easy_init()函数得到easy接口型指针
+* 3. 调用curl_easy_setopt设置传输选项
+* 4. 根据curl_easy_setopt设置的传输选项，实现回调函数已完成用户特定任务
+* 5. 调用curl_easy_perform()函数完成传输任务
+* 6. 调用curl_easy_cleanup()释放内存
+
+## 函数描述
+
+1. CURLcode curl_global_init(long flags)
+描述：
+这个函数只能用一次。(其实在调用curl_global_cleanup 函数后仍然可再用)
+如果这个函数在curl_easy_init函数调用时还没调用，它讲由libcurl库自动完成。
+参数：flags
+CURL_GLOBAL_ALL                 //初始化所有的可能的调用。
+CURL_GLOBAL_SSL                 //初始化支持 安全套接字层。
+CURL_GLOBAL_WIN32            //初始化win32套接字库。
+CURL_GLOBAL_NOTHING         //没有额外的初始化
+
+2. void curl_global_cleanup(void);
+描述：在结束libcurl使用的时候，用来对curl_global_init做的工作清理。类似于close的函数。
+
+3. char *curl_version( );
+描述: 打印当前libcurl库的版本。
+
+4. CURL *curl_easy_init( );
+描述:
+curl_easy_init用来初始化一个CURL的指针(有些像返回FILE类型的指针一样). 相应的在调用结束时要用curl_easy_cleanup函数清理.
+一般curl_easy_init意味着一个会话的开始. 它的返回值一般都用在easy系列的函数中.
+
+5. void curl_easy_cleanup(CURL *handle);
+描述:
+这个调用用来结束一个会话.与curl_easy_init配合着用.
+参数:
+CURL类型的指针.
+
+6. CURLcode curl_easy_setopt(CURL *handle, CURLoption option, parameter);
+描述: 这个函数最重要了.几乎所有的curl 程序都要频繁的使用它.它告诉curl库.程序将有如何的行为. 比如要查看一个网页的html代码等.(这个函数有些像ioctl函数)参数:
+1 CURL类型的指针
+2 各种CURLoption类型的选项.(都在curl.h库里有定义,man 也可以查看到)
+3 parameter 这个参数 既可以是个函数的指针,也可以是某个对象的指针,也可以是个long型的变量.它用什么这取决于第二个参数.
+CURLoption 这个参数的取值很多.具体的可以查看man手册.
+
+7. CURLcode curl_easy_perform(CURL *handle);
+描述:这个函数在初始化CURL类型的指针 以及curl_easy_setopt完成后调用. 就像字面的意思所说perform就像是个舞台.让我们设置的
+option 运作起来.参数:
+CURL类型的指针.
+
+# curl_easy_setopt函数介绍
+
+1. CURLOPT_URL
+设置访问URL
+
+2. CURLOPT_WRITEFUNCTION，CURLOPT_WRITEDATA
+回调函数原型为：size_t function( void *ptr, size_t size, size_t nmemb, void *stream); 函数将在libcurl接收到数据后被调用，因此函数多做数据保存的功能，如处理下载文件。CURLOPT_WRITEDATA 用于表明CURLOPT_WRITEFUNCTION函数中的stream指针的来源。
+
+3. CURLOPT_HEADERFUNCTION，CURLOPT_HEADERDATA
+回调函数原型为 size_t function( void *ptr, size_t size,size_t nmemb, void *stream); libcurl一旦接收到http 头部数据后将调用该函数。CURLOPT_WRITEDATA 传递指针给libcurl，该指针表明CURLOPT_HEADERFUNCTION 函数的stream指针的来源。
+
+4. CURLOPT_READFUNCTION CURLOPT_READDATA
+libCurl需要读取数据传递给远程主机时将调用CURLOPT_READFUNCTION指定的函数，函数原型是：size_t function(void *ptr, size_t size, size_t nmemb,void *stream). CURLOPT_READDATA 表明CURLOPT_READFUNCTION函数原型中的stream指针来源。
+
+5. CURLOPT_NOPROGRESS，CURLOPT_PROGRESSFUNCTION，CURLOPT_PROGRESSDATA
+跟数据传输进度相关的参数。CURLOPT_PROGRESSFUNCTION 指定的函数正常情况下每秒被libcurl调用一次，为了使CURLOPT_PROGRESSFUNCTION被调用，CURLOPT_NOPROGRESS必须被设置为false，CURLOPT_PROGRESSDATA指定的参数将作为CURLOPT_PROGRESSFUNCTION指定函数的第一个参数
+
+6. CURLOPT_TIMEOUT，CURLOPT_CONNECTIONTIMEOUT:
+CURLOPT_TIMEOUT 由于设置传输时间，CURLOPT_CONNECTIONTIMEOUT 设置连接等待时间
+
+7. CURLOPT_FOLLOWLOCATION
+设置重定位URL
+CURLOPT_RANGE: CURLOPT_RESUME_FROM:
+断点续传相关设置。CURLOPT_RANGE 指定char *参数传递给libcurl，用于指明http域的RANGE头域，例如：
+表示头500个字节：bytes=0-499
+表示第二个500字节：bytes=500-999
+表示最后500个字节：bytes=-500
+表示500字节以后的范围：bytes=500-
+第一个和最后一个字节：bytes=0-0,-1
+同时指定几个范围：bytes=500-600,601-999
+CURLOPT_RESUME_FROM 传递一个long参数给libcurl，指定你希望开始传递的偏移量。
+
+## curl_easy_perform 函数说明（error 状态码）
+
+该函数完成curl_easy_setopt指定的所有选项，本节重点介绍curl_easy_perform的返回值。返回0意味一切ok，非0代表错误发生。主要错误码说明：
+1. CURLE_OK
+    任务完成一切都好
+
+2. CURLE_UNSUPPORTED_PROTOCOL
+
+    不支持的协议，由URL的头部指定
+
+3. CURLE_COULDNT_CONNECT
+
+    不能连接到remote 主机或者代理
+
+4. CURLE_REMOTE_ACCESS_DENIED
+
+    访问被拒绝
+
+5. CURLE_HTTP_RETURNED_ERROR
+
+    Http返回错误
+
+6. CURLE_READ_ERROR
+读本地文件错误
+
+示例：
+
+    #include <stdio.h>
+    #include <curl/curl.h>
+    #include <stdlib.h>
+
+     int main(int argc, char *argv[])
+    {
+       CURL *curl;             //定义CURL类型的指针
+       CURLcode res;           //定义CURLcode类型的变量，保存返回状态码
+
+       if(argc!=2)
+       {
+           printf("Usage : file <url>;/n");
+           exit(1);
+       }
+       curl = curl_easy_init();        //初始化一个CURL类型的指针
+       if(curl!=NULL)
+       {
+           //设置curl选项. 其中CURLOPT_URL是让用户指定url. argv[1]中存放的命令行传进来的网址
+           curl_easy_setopt(curl, CURLOPT_URL, argv[1]);
+           //调用curl_easy_perform 执行我们的设置.并进行相关的操作. 在这里只在屏幕上显示出来.
+            res = curl_easy_perform(curl);
+           //清除curl操作.
+           curl_easy_cleanup(curl);
+       }
+       return 0;
+     }
+
+编译：
+
+    gcc testcurl.c -o testcurl -libCurl
+运行：
+
+    ./testcurl www.baidu.com
