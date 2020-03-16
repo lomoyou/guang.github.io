@@ -1,0 +1,25 @@
+# *监控脚本*
+在Linux系统中，为了保证系统能够持续有效的运行，常常会使用监控脚本来对某个软件（程序）进行监控。
+
+##一个简单的监控脚本：
+
+
+	#!/bin/bash
+
+	PROG_PATH="/opt/cytel/FaceId"
+	while true
+	do
+		procnum=`ps -ef|grep "FaceID"|grep -v grep|wc -l`
+		if [ $procnum -eq 0 ] 
+		then
+			echo "`date`: FaceID starting" >> ./log/monitor.log
+			cd $PROG_PATH
+			./FaceID.ARM > /dev/null &
+		else
+			echo "`date`: FaceID running" >> ./log/monitor.log
+		fi
+		sleep 5
+	done
+	#ps -ef | grep <进程名>		--用来查看该进程的PID和环境变量
+	#date命令：查看当前日期  
+	# >> ： 重定向到目标文件
