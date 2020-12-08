@@ -1,5 +1,5 @@
 ---
-layout:     Go
+layout:     post
 title:      Metux和WaitGroup包的使用
 subtitle:   
 date:       2020-12-08
@@ -7,9 +7,9 @@ author:     北天
 header-img: 
 catalog: true
 tags:
-    -共享内存
+    - 共享内存
 ---
-# go 共享内存
+# *Mutex和WaitGroup*
 
 ## 1 sync.Mutex 
 
